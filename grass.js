@@ -1,4 +1,4 @@
-class Grass extends LivingCreature {
+class Grass extends LivingCreature {ArArakelyan
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
