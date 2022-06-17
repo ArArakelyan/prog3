@@ -1,4 +1,4 @@
-class Bust {
+module.exports = class Bust {
     constructor(x, y) {
         this.x = x
         this.y = y
