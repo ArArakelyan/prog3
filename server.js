@@ -91,7 +91,7 @@ function generate(matLen,gr,grEat, pred, bust, bomb, kam) {
     return matrix
 }
 
-matrix = generate(40, 100, 70, 20, 5, 5, 5)
+matrix = generate(40, 100, 70, 20, 5, 10, 10)
 
 io.sockets.emit('send matrix', matrix)
 
