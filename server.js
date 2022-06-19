@@ -133,6 +133,20 @@ function createObject(matrix) {
             }
         }
     }
+    let objectCount = {
+        grass: grassArr.length,
+        grassEater: grassEaterArr.length,
+        predator: predArr.length,
+        bust: bustArr.length,
+        bomb: bombArr.length,
+        kamikadze: kamikadzeArr.length
+    }
+
+    let data = JSON.stringify(objectCount, null, 2)
+    fs.writeFile('statistics.json', data, function(err){
+        console.log('Process finished');
+    })
+
     io.sockets.emit('send matrix', matrix)
 }
 
