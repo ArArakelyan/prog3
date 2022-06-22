@@ -4,7 +4,8 @@ var side = 15;
 
 function setup() {
     frameRate(5);
-    createCanvas(40 * side, 40 * side);
+    const canvas = createCanvas(40 * side, 40 * side);
+    canvas.parent('main-div')
     background('#acacac');
 }
 

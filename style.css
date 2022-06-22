@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(255, 250, 244);
+}
+
+#title-text {
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+}
+
+#main-div {
+    display: flex;
+}
+
+.table {
+    width: 50%;
+    margin:0px 120px 0px 50px;
+}

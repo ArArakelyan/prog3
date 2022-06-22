@@ -133,6 +133,8 @@ function createObject(matrix) {
             }
         }
     }
+
+    io.sockets.emit('send matrix', matrix)
     let objectCount = {
         grass: grassArr.length,
         grassEater: grassEaterArr.length,
@@ -143,11 +145,7 @@ function createObject(matrix) {
     }
 
     let data = JSON.stringify(objectCount, null, 2)
-    fs.writeFile('statistics.json', data, function(err){
-        console.log('Process finished');
-    })
-
-    io.sockets.emit('send matrix', matrix)
+    fs.writeFileSync('statistics.json', data)
 }
 
 function gamePlay() {
