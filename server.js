@@ -91,7 +91,7 @@ function generate(matLen,gr,grEat, pred, bust, bomb, kam) {
     return matrix
 }
 
-matrix = generate(40, 100, 70, 20, 5, 10, 10)
+matrix = generate(40, 100, 70, 20, 5, 3, 3)
 
 io.sockets.emit('send matrix', matrix)
 
@@ -133,8 +133,6 @@ function createObject(matrix) {
             }
         }
     }
-
-    io.sockets.emit('send matrix', matrix)
     let objectCount = {
         grass: grassArr.length,
         grassEater: grassEaterArr.length,
@@ -146,6 +144,8 @@ function createObject(matrix) {
 
     let data = JSON.stringify(objectCount, null, 2)
     fs.writeFileSync('statistics.json', data)
+    
+    io.sockets.emit('send matrix', matrix)
 }
 
 function gamePlay() {

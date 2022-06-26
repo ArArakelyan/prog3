@@ -3,7 +3,6 @@ let LivingCreature = require('./creature')
 module.exports = class Kamikadze extends LivingCreature {
     constructor(x, y) {
         super(x, y)
-        this.status = 'alive'
         this.directions = []
     }
     getNewCoordinates() {
@@ -46,10 +45,10 @@ module.exports = class Kamikadze extends LivingCreature {
         }
     }
     eat() {
-        this.move()
         var emptyCells = this.chooseCell(5);
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
-        if (newCell && this.status == 'alive') {
+
+        if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = matrix[this.y][this.x]
@@ -62,10 +61,9 @@ module.exports = class Kamikadze extends LivingCreature {
                     break;
                 }
             }
-            this.status = 'died'
-
-        } else if (this.status == 'died'){
             this.die()
+        } else {
+            this.move()
         }
     }
     
